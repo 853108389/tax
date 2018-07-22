@@ -1,0 +1,152 @@
+@charset "utf-8";
+html {
+    font-size: 625%;
+}
+body,h1,h2,h3,h4,p,ul,ol,form,fieldset,figure {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #fff;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
+    font-size: .16rem;
+}
+ul,ol {
+    list-style: outside none none;
+}
+a {
+    text-decoration: none;
+}
+img {
+    display: block;
+    max-width: 100%;
+}
+/*div,*/figure,figcaption {
+    box-sizing: border-box;
+}
+.none {
+    display: none;
+}
+.clearfix:after {
+    content: '.';
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+.number{
+    border-radius: 0.04rem;
+    height:0.9rem;
+    width:100%;
+    text-align: center;
+}
+.number .left{
+    border-radius: 0.04rem;
+    display: inline-block;
+    height:0.8rem;
+    float:left;
+    background-color: black;
+    width:50%;
+}
+.number .right{
+    border-radius: 0.04rem;
+    display: inline-block;
+    height:0.8rem;
+    float:right;
+    background-color: gray;
+    width:50%;
+}
+.number .ps{
+    margin:0.18rem auto;
+}
+.number p ,.scanner a {
+    font-size:0.13rem;
+    margin :0.05rem;
+}
+.scanner{
+    width:100%;
+    display: inline-block;
+    height:0.8rem;
+    text-align: center;
+}
+.scanner .left{
+    border: 1px solid red;
+}
+.scanner .right{
+    border: 1px solid green;
+}
+.scanner .center{
+    border: 1px solid blue;
+}
+.scanner .scdiv{
+    border-radius: 0.04rem;
+    display: inline-block;
+    height:1.0rem;
+    width:31%;
+}
+.scanner .scdiv a{
+    line-height: 0.7rem;
+    display: block;
+    height:1.0rem;
+}
+/*.blanker{
+    height:1.25rem;
+}*/
+/*.search{*/
+    /*margin:0.05rem 0;*/
+    /*height: 0.5rem;*/
+    /*background-color: white;*/
+/*}*/
+/*.search a{*/
+    /*display: inline-block;*/
+/*}*/
+/*.search .sinput{*/
+    /*width:30%;*/
+/*}*/
+/*.search .searchleft{*/
+    /*margin: 0.05rem 0.06rem;*/
+    /*display: inline-block;*/
+    /*height: 0.30rem;*/
+    /*width:25%;*/
+    /*float:left;*/
+/*}*/
+/*.search .searchright{*/
+    /*margin: 0.05rem 0.06rem;*/
+    /*display: inline-block;*/
+    /*height: 0.30rem;*/
+    /*width:25%;*/
+    /*float:left;*/
+/*}*/
+/*.search .searchbutton{*/
+    /*position: relative;*/
+    /*bottom:0.05rem;*/
+     /*float:left;*/
+/*}*/
+/*.search a{*/
+    /*width:9%;*/
+    /*display: inline-block;*/
+    /*float:left;*/
+/*}*/
+/*.search .search2{*/
+    /*margin: 0.05rem 0.06rem;*/
+    /*display: inline-block;*/
+    /*height: 0.30rem;*/
+    /*width:65%;*/
+    /*float:left;*/
+/*}*/
+#myTable tr {
+    font-size: 0.1rem;
+}
+.media {
+    display: block;
+    height:3rem;
+    width:3rem;
+    margin: 0 auto;
+}
+
+#main{
+    margin-top: 0.3rem;
+    height:250px;
+    width:100%;
+    display: inline-block
+}

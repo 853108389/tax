@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kk.apollo.biz.dao.TicketDao" >
+  <resultMap id="BaseResultMap" type="com.kk.apollo.biz.model.Ticket" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="tnumber" property="tnumber" jdbcType="VARCHAR" />
+    <result column="tmoney" property="tmoney" jdbcType="VARCHAR" />
+    <result column="tcode" property="tcode" jdbcType="VARCHAR" />
+    <result column="tdate" property="tdate" jdbcType="VARCHAR" />
+    <result column="tnopass" property="tnopass" jdbcType="VARCHAR" />
+    <result column="tpass" property="tpass" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <resultMap id="BaseResultMap2" type="com.kk.apollo.biz.model.TicketSum" >
+    <result column="sumtpass" property="pass" jdbcType="VARCHAR" />
+    <result column="sumtnopass" property="nopass" jdbcType="VARCHAR" />
+    <result column="sumtmoney" property="sumMoney" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, tnumber, tmoney, tcode, tdate, tnopass, tpass
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kk.apollo.biz.model.TicketExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ticket
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from ticket
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ticket
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kk.apollo.biz.model.TicketExample" >
+    delete from ticket
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kk.apollo.biz.model.Ticket" >
+    insert into ticket (tnumber, tmoney,
+      tcode, tdate, tnopass,
+      tpass)
+    values (#{tnumber,jdbcType=VARCHAR}, #{tmoney,jdbcType=VARCHAR},
+      #{tcode,jdbcType=VARCHAR}, #{tdate,jdbcType=VARCHAR}, #{tnopass,jdbcType=VARCHAR},
+      #{tpass,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kk.apollo.biz.model.Ticket" >
+    insert into ticket
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="tnumber != null" >
+        tnumber,
+      </if>
+      <if test="tmoney != null" >
+        tmoney,
+      </if>
+      <if test="tcode != null" >
+        tcode,
+      </if>
+      <if test="tdate != null" >
+        tdate,
+      </if>
+      <if test="tnopass != null" >
+        tnopass,
+      </if>
+      <if test="tpass != null" >
+        tpass,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="tnumber != null" >
+        #{tnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="tmoney != null" >
+        #{tmoney,jdbcType=VARCHAR},
+      </if>
+      <if test="tcode != null" >
+        #{tcode,jdbcType=VARCHAR},
+      </if>
+      <if test="tdate != null" >
+        #{tdate,jdbcType=VARCHAR},
+      </if>
+      <if test="tnopass != null" >
+        #{tnopass,jdbcType=VARCHAR},
+      </if>
+      <if test="tpass != null" >
+        #{tpass,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kk.apollo.biz.model.TicketExample" resultType="java.lang.Integer" >
+    select count(*) from ticket
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ticket
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.tnumber != null" >
+        tnumber = #{record.tnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tmoney != null" >
+        tmoney = #{record.tmoney,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tcode != null" >
+        tcode = #{record.tcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tdate != null" >
+        tdate = #{record.tdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tnopass != null" >
+        tnopass = #{record.tnopass,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tpass != null" >
+        tpass = #{record.tpass,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ticket
+    set id = #{record.id,jdbcType=INTEGER},
+      tnumber = #{record.tnumber,jdbcType=VARCHAR},
+      tmoney = #{record.tmoney,jdbcType=VARCHAR},
+      tcode = #{record.tcode,jdbcType=VARCHAR},
+      tdate = #{record.tdate,jdbcType=VARCHAR},
+      tnopass = #{record.tnopass,jdbcType=VARCHAR},
+      tpass = #{record.tpass,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kk.apollo.biz.model.Ticket" >
+    update ticket
+    <set >
+      <if test="tnumber != null" >
+        tnumber = #{tnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="tmoney != null" >
+        tmoney = #{tmoney,jdbcType=VARCHAR},
+      </if>
+      <if test="tcode != null" >
+        tcode = #{tcode,jdbcType=VARCHAR},
+      </if>
+      <if test="tdate != null" >
+        tdate = #{tdate,jdbcType=VARCHAR},
+      </if>
+      <if test="tnopass != null" >
+        tnopass = #{tnopass,jdbcType=VARCHAR},
+      </if>
+      <if test="tpass != null" >
+        tpass = #{tpass,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kk.apollo.biz.model.Ticket" >
+    update ticket
+    set tnumber = #{tnumber,jdbcType=VARCHAR},
+      tmoney = #{tmoney,jdbcType=VARCHAR},
+      tcode = #{tcode,jdbcType=VARCHAR},
+      tdate = #{tdate,jdbcType=VARCHAR},
+      tnopass = #{tnopass,jdbcType=VARCHAR},
+      tpass = #{tpass,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="findTicketByTnumber" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select  *  from ticket where tnumber =#{tnumber};
+  </select>
+  <select id="findTicketPass" resultType="java.lang.Integer"  >
+    select  sum(tpass)  from ticket;
+  </select>
+  <select id="findTickeyNopass" resultType="java.lang.Integer"  >
+    select  sum(tnopass)  from ticket;
+  </select>
+  <select id="findByYears" resultMap="BaseResultMap" >
+    select  *  from ticket where tdate BETWEEN #{0} and  #{1}
+  </select>
+  <select id="findSumByYear" resultMap="BaseResultMap2" parameterType="java.lang.String" >
+    select  sum(tpass) as sumtpass, sum(tnopass) as sumtnopass , sum(tmoney) sumtmoney  from ticket where tdate like '%${value}%'
+  </select>
+</mapper>

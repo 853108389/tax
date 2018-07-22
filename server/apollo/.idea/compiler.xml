@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="apollo-biz" />
+        <module name="apollo-common" />
+        <module name="apollo-controller" />
+        <module name="apollo-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="apollo" target="1.7" />
+      <module name="apollo-biz" target="1.7" />
+      <module name="apollo-common" target="1.7" />
+      <module name="apollo-controller" target="1.7" />
+      <module name="apollo-web" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
